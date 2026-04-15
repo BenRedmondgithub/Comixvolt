@@ -1,15 +1,14 @@
 import React from 'react';
 
-const ComicCard = ({ comic }) => {
+const ComicCard = ({ comic = {} }) => {
   const {
-    title,
-    author,
-    publisher,
-    releaseDate,
-    genre,
-    description,
+    title = "Sample Comic Title",
+    author = "Unknown Author",
+    publisher = "Unknown Publisher",
+    releaseDate = "2024-01-01",
+    description = "A thrilling comic adventure awaits!",
     coverImage,
-    rating = 0,
+    rating = 4,
     notes = []
   } = comic;
 
@@ -48,14 +47,7 @@ const ComicCard = ({ comic }) => {
             e.target.src = defaultCover;
           }}
         />
-        {/* Genre Badge */}
-        {genre && (
-          <div className="absolute top-3 left-3">
-            <span className="bg-blue-600 text-white px-2 py-1 rounded-full text-xs font-medium">
-              {genre}
-            </span>
-          </div>
-        )}
+
         {/* Rating */}
         {rating > 0 && (
           <div className="absolute top-3 right-3 bg-black/50 backdrop-blur-sm rounded-lg px-2 py-1">
@@ -126,7 +118,7 @@ const ComicCard = ({ comic }) => {
 };
 
 // Component to display multiple comics in a grid
-const ComicsGrid = ({ comics }) => {
+const ComicsGrid = ({ comics = [] }) => {
   if (!comics || comics.length === 0) {
     return (
       <div className="text-center py-12">

@@ -4,6 +4,7 @@ import viteLogo from './assets/vite.svg'
 import heroImg from './assets/hero.png'
 import './App.css'
 import { NavbarDark } from './components/navbar';
+import { ComicCard } from './components/comicCard'
 
 function App() {
 
@@ -14,7 +15,8 @@ function App() {
         <div className="text-center">
           <h1>Welcome to Comixvolt</h1>
           <p>Track your comics. Write your thoughts. Build your story.</p>
-          <a href="/comics" className="px-6 py-3 bg-blue-600 hover:bg-blue-700 rounded-lg text-white">Add a Comic</a>
+          <a href="/add-comic" className="px-6 py-3 bg-blue-600 hover:bg-blue-700 rounded-lg text-white">Add a Comic</a>
+          <ComicCard />
         </div>
       </div>
     </div>
