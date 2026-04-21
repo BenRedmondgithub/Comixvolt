@@ -8,6 +8,8 @@ interface Comic {
   coverImage?: string;
   rating?: number;
   description?: string;
+  status?: 'read' | 'reading' | 'to-read';
+  notes?: string[];
 }
 
 const ComicCard = ({ comic }: { comic: Comic }) => {
@@ -18,7 +20,9 @@ const ComicCard = ({ comic }: { comic: Comic }) => {
     releaseDate = "Unknown Release Date",
     coverImage = "",
     rating = 0,
-    description = "No description available."
+    description = "No description available.",
+    status = "to-read",
+    notes = []
   } = comic || {};
 
   // Default cover if no image provided
@@ -29,11 +33,11 @@ const ComicCard = ({ comic }: { comic: Comic }) => {
   return (
     <div className="bg-white rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden max-w-xs">
       {/* Cover Image */}
-      <div className="relative h-20 bg-gray-200 overflow-hidden">
+      <div className="relative h-64 bg-gray-200 overflow-hidden">
         <img
           src={coverImage || defaultCover}
           alt={`${title} cover`}
-          className="w-10 h-15 object-cover object-center transition-transform duration-300 hover:scale-105"
+          className="w-full h-full object-cover object-center transition-transform duration-300 hover:scale-105"
           onError={(e) => { e.currentTarget.src = defaultCover; }}
         />
 
@@ -86,6 +90,35 @@ const ComicCard = ({ comic }: { comic: Comic }) => {
             </svg>
           </button>
         </div>
+        {/* Status */}
+        {status && (
+          <p className="text-xs text-gray-500 mt-2">
+            <span className="font-medium">Status:</span> {status}
+          </p>
+        )}
+        {/* Notes */}
+        {notes.length > 0 && (
+          <details className="mt-3 rounded-lg border border-gray-200 bg-gray-50 group">
+            <summary className="flex cursor-pointer list-none items-center justify-between px-3 py-2 text-xs font-medium text-gray-700 marker:hidden">
+              <span>Notes</span>
+              <svg
+                className="h-4 w-4 text-gray-500 transition-transform group-open:rotate-180"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+              </svg>
+            </summary>
+            <ul className="border-t border-gray-200 px-3 py-2 text-xs leading-relaxed text-gray-600">
+              {notes.map((note, index) => (
+                <li key={`${title}-note-${index}`} className="py-1 first:pt-0 last:pb-0">
+                  {note}
+                </li>
+              ))}
+            </ul>
+          </details>
+        )}
       </div>
     </div>
   );

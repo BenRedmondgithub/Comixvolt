@@ -6,7 +6,8 @@ type Comic = {
   coverImage?: string;
   rating: number;
   description?: string;
-    // notes?: string[]; // Optional array of notes for the comic
+  status?: 'read' | 'reading' | 'to-read';
+  notes?: string[];
 };
 
 export type { Comic };

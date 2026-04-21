@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import './App.css'
-import { NavbarDark } from './components/navbar.js';
-import { ComicCard } from './components/comicCard.js';
+import { NavbarDark } from './components/navbar.tsx';
+import { ComicCard } from './components/comicCard.tsx';
 
 function App() {
   // Sample comic data for demonstration
@@ -13,7 +13,7 @@ function App() {
     coverImage: "https://static.wikia.nocookie.net/pawnstarsthegame/images/0/05/Amazing_Fantasy_-15-0.png/revision/latest?cb=20160527204501",
     rating: 5,
     description: "The first appearance of Spider-Man! A classic that changed comics forever.",
-    // notes: ["First appearance of Spider-Man"]
+    notes: ["First appearance of Spider-Man.", "Essential Silver Age key issue."]
   };
 
   const sampleComic2 = {
@@ -24,14 +24,14 @@ function App() {
     coverImage: "https://upload.wikimedia.org/wikipedia/en/f/f9/LastRonin1Cover.jpeg",
     rating: 5,
     description: "A gritty, dystopian tale of the last surviving Ninja Turtle seeking justice in a world ruled by crime.",
-    // notes: ["Gritty retelling of Batman's origin story"]
+    notes: ["Darker alternate-future story.", "Oversized format looks great in hand."]
   };
 
   // Array of comics for mapping
   const comics = [sampleComic, sampleComic2];
 
   return (
-    <div className="App min-h-screen bg-gray-50">
+    <div className="App min-h-screen bg-zinc-850">
       <NavbarDark />
       <div className="hero py-16 px-4">
         <div className="text-center max-w-6xl mx-auto">
