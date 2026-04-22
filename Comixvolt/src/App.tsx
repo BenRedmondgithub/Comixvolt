@@ -37,7 +37,7 @@ function App() {
         <div className="text-center max-w-6xl mx-auto">
           <h1 className="text-5xl font-bold text-gray-900 mb-6">Welcome to Comixvolt</h1>
           <p className="text-xl text-gray-600 mb-8">Track your comics. Write your thoughts. Build your story.</p>
-          <a href="/add-comic" className="inline-block px-8 py-4 bg-blue-600 hover:bg-blue-700 rounded-lg text-white font-semibold transition-colors mb-12">
+          <a href="/addComic/addComicPage" className="inline-block px-8 py-4 bg-blue-600 hover:bg-blue-700 rounded-lg text-white font-semibold transition-colors mb-12">
             Add a Comic
           </a>
           
