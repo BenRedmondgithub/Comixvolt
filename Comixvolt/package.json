@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "server": "tsx backend/server.tsx",
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview"
